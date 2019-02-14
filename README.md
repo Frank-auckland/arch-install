@@ -29,7 +29,7 @@ yay rofi
 # install zsh powerline and nerd-fonts-complete
 https://wiki.archlinux.org/index.php/zsh#Installation    
 https://wiki.archlinux.org/index.php/Powerline    
-```yay nerd-fonts-complete```
+```yay nerd-fonts-complete```    
 ```sudo cp -r ..zshrc ~/``` 
 
 
@@ -59,18 +59,18 @@ yay polybar
 ```sudo cp -r .config/polybar ~/.config/```
 
 # install 2bwm
-git clone this reportisy, go to 2bwm directory
+git clone this reportisy, go to 2bwm directory    
 ```make clean; make; sudo make install```        
-copy .xinitrc .xprofile .Xresources to user home directory.
+copy .xinitrc .xprofile .Xresources to user home directory.    
 ```sudo cp -r .xinitrc ~/```    
 ```sudo cp -r .xprofile ~/```    
 ```sudo cp -r .Xresources ~/```    
 
 # install sogou
-```yay adobe-source-han-sans-cn-fonts```
-```yay fcitx```
-```yay fcitx-configtool```
-```yay fcitx-sogoupinyin```
+```yay adobe-source-han-sans-cn-fonts```    
+```yay fcitx```    
+```yay fcitx-configtool```    
+```yay fcitx-sogoupinyin```     
 use fcitx-configtool to add chinese (chick off "only show current language" )
 
 
