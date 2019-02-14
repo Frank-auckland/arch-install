@@ -1,59 +1,77 @@
-# 1.install arch 
+# install arch 
 https://wiki.archlinux.org/index.php/installation_guide#Installation and https://www.viseator.com/2017/05/17/arch_install/ (don't install vim, install neovim)
 
-# 2.upgrade pacman keys
+# upgrade pacman keys
 ```pacman-key --refresh-keys``` 
 
-# 3.install dialog wpa_supplicant
+# install dialog wpa_supplicant
 pacman -S dialog wpa_supplicant
 
-# 4. install yay
+# install yay
 https://www.ostechnix.com/yay-found-yet-another-reliable-aur-helper/    
 after this use yay -S yay install yay again, let yay under yay control
 
-# 5. install netctl and wpa_actiond
+# install netctl and wpa_actiond
 https://wiki.archlinux.org/index.php/netctl#Wireless, interface.service can find out form command ip addr (the card name).
 
-# 6. install bluez and bluez-utils
+# install bluez and bluez-utils
 https://wiki.archlinux.org/index.php/bluetooth#Installation
 
-# 7. install xorg-xrandr
+# install xorg-xrandr
 pacman -S xorg-xrandr
 
-# 8. install rofi
+# install rofi
 yay rofi
 
-# 9. install 2bwm
-git clone this reportisy, go to 2bwm directory, run ```make clean; make; sudo make install```    
-copy .xinitrc .xprofile .Xresources to user home directory.
+# install chromium
+```yay chromium```
 
-# 10. install zsh and powerline
+# install zsh powerline and nerd-fonts-complete
 https://wiki.archlinux.org/index.php/zsh#Installation    
 https://wiki.archlinux.org/index.php/Powerline    
-copy .zshrc to user home directory.
+```yay nerd-fonts-complete```
+```sudo cp -r ..zshrc ~/``` 
 
-# 11. install neovim
+
+# install neovim
 neovim should install after powerline    
 https://wiki.archlinux.org/index.php/Neovim    
-copy .config/nvim to home directory    
+```sudo cp -r .config/nvim ~/.config/```    
 
-# 12. install alacritty
+# install alacritty
 yay alacritty-git    
-copy .config/alacritty to home directory    
+```sudo cp -r .config/alacritty ~/.config/```    
 
-# 13. install pulseaudio pavucontrol imagemagick
+# install pulseaudio pavucontrol imagemagick
 yay pulseaudio    
 yay pavucontrol    
-yay imagemagick    
+yay imagemagick   
+```sudo cp -r .script/pavol /usr/local/bin/```    
+```sudo cp -r .script/screenshot /usr/local/bin/```    
+```sudo chmod 755 /usr/local/bin/pavol```    
+```sudo chmod 755 /usr/local/bin/screenshot```    
 
+# install nitrogen
+yay nitrogen
 
+# install polybar
+yay polybar     
+```sudo cp -r .config/polybar ~/.config/```
 
+# install 2bwm
+git clone this reportisy, go to 2bwm directory
+```make clean; make; sudo make install```        
+copy .xinitrc .xprofile .Xresources to user home directory.
+```sudo cp -r .xinitrc ~/```    
+```sudo cp -r .xprofile ~/```    
+```sudo cp -r .Xresources ~/```    
 
+# install sogou
+```yay adobe-source-han-sans-cn-fonts```
+```yay fcitx```
+```yay fcitx-configtool```
+```yay fcitx-sogoupinyin```
+use fcitx-configtool to add chinese (chick off "only show current language" )
 
-
-Pulse Audio, Archlinux Wiki it
-
-Install pavucontrol
-pkgfile import
 
 
