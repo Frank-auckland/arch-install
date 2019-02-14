@@ -8,7 +8,7 @@ https://wiki.archlinux.org/index.php/installation_guide#Installation and https:/
 pacman -S dialog wpa_supplicant
 
 # 4. install yay
-https://www.ostechnix.com/yay-found-yet-another-reliable-aur-helper/
+https://www.ostechnix.com/yay-found-yet-another-reliable-aur-helper/    
 after this use yay -S yay install yay again, let yay under yay control
 
 # 5. install netctl and wpa_actiond
@@ -24,27 +24,27 @@ pacman -S xorg-xrandr
 yay rofi
 
 # 9. install 2bwm
-git clone this reportisy, go to 2bwm directory, run ```make clean; make; sudo make install```
+git clone this reportisy, go to 2bwm directory, run ```make clean; make; sudo make install```    
 copy .xinitrc .xprofile .Xresources to user home directory.
 
 # 10. install zsh and powerline
-https://wiki.archlinux.org/index.php/zsh#Installation
-https://wiki.archlinux.org/index.php/Powerline
+https://wiki.archlinux.org/index.php/zsh#Installation    
+https://wiki.archlinux.org/index.php/Powerline    
 copy .zshrc to user home directory.
 
 # 11. install neovim
-neovim should install after powerline
-https://wiki.archlinux.org/index.php/Neovim
-copy .config/nvim to home directory
+neovim should install after powerline    
+https://wiki.archlinux.org/index.php/Neovim    
+copy .config/nvim to home directory    
 
 # 12. install alacritty
-yay alacritty-git
-copy .config/alacritty to home directory
+yay alacritty-git    
+copy .config/alacritty to home directory    
 
 # 13. install pulseaudio pavucontrol imagemagick
-yay pulseaudio
-yay pavucontrol
-yay imagemagick
+yay pulseaudio    
+yay pavucontrol    
+yay imagemagick    
 
 
 
