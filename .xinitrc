@@ -17,7 +17,7 @@ xsetroot -cursor_name left_ptr &
 
 #xmodmap ~/.xmodmap &
 
-xrandr --output DP1 --left-of DP2 --output eDP1 --off & 
+xrandr --output DP1 --left-of DP2 --output eDP1 --off &
 #xrandr --output DP1 --left-of DP2 --output & 
 
 nitrogen --restore &
@@ -33,7 +33,6 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Launch bar1 and bar2
 polybar example &
 polybar main &
-
 
 echo "Bars launched..."
 
