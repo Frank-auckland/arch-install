@@ -53,6 +53,7 @@ yay imagemagick
 ```sudo cp -r .script/screenshot /usr/local/bin/```    
 ```sudo chmod 755 /usr/local/bin/pavol```    
 ```sudo chmod 755 /usr/local/bin/screenshot```    
+```sudo mkdir ~/Pictures```
 
 # install nitrogen
 yay nitrogen
