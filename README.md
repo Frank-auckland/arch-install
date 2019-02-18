@@ -20,7 +20,8 @@ https://wiki.archlinux.org/index.php/netctl#Wireless, interface.service can find
 https://wiki.archlinux.org/index.php/bluetooth#Installation
 
 # install xorg-xrandr
-pacman -S xorg-xrandr
+```pacman -S xorg-xrandr```    
+```sudo cp -r .zprofile ~/```····
 
 # install rofi
 yay rofi
