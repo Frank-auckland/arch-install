@@ -10,6 +10,7 @@ https://www.youtube.com/watch?v=NFi6HwtPBgA (recommended, specially systemd-boot
 pacman -S dialog wpa_supplicant
 
 # install yay
+create user and group https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user
 https://www.ostechnix.com/yay-found-yet-another-reliable-aur-helper/    
 after this use yay -S yay install yay again, let yay under yay control
 
