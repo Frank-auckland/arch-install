@@ -1,6 +1,6 @@
 # install arch 
 https://wiki.archlinux.org/index.php/installation_guide#Installation and https://www.viseator.com/2017/05/17/arch_install/ (don't install vim, install neovim)      
-https://www.youtube.com/watch?v=NFi6HwtPBgA(recommended, specially systemd-boot part)     
+https://www.youtube.com/watch?v=NFi6HwtPBgA (recommended, specially systemd-boot part)     
 
 
 # upgrade pacman keys
