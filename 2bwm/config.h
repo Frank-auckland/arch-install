@@ -14,9 +14,9 @@ static const uint16_t movements[] = {
 
 static const uint8_t offsets[] = {
   0, // offsetx
-  30, // offsety
+  35, // offsety
   0, // max width
-  30  // max height
+  35  // max height
 };
 
 static const char * colors[] = {
