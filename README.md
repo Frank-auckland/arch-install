@@ -25,6 +25,15 @@ https://wiki.archlinux.org/index.php/bluetooth#Installation
 ```pacman -S xorg-xrandr```    
 ```sudo cp -r .zprofile ~/```····
 
+# install 2bwm
+git clone this reportisy, go to 2bwm directory    
+```make clean; make; sudo make install```        
+copy .xinitrc .xprofile .Xresources to user home directory.    
+```sudo cp -r .xinitrc ~/```    
+```sudo cp -r .xprofile ~/```    
+```sudo cp -r .Xresources ~/```   
+
+
 # install rofi
 yay rofi
 
@@ -62,15 +71,7 @@ yay nitrogen
 
 # install polybar
 yay polybar     
-```sudo cp -r .config/polybar ~/.config/```
-
-# install 2bwm
-git clone this reportisy, go to 2bwm directory    
-```make clean; make; sudo make install```        
-copy .xinitrc .xprofile .Xresources to user home directory.    
-```sudo cp -r .xinitrc ~/```    
-```sudo cp -r .xprofile ~/```    
-```sudo cp -r .Xresources ~/```    
+```sudo cp -r .config/polybar ~/.config/``` 
 
 # install sogou
 ```yay adobe-source-han-sans-cn-fonts```    
