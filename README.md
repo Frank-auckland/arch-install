@@ -27,6 +27,8 @@ https://wiki.archlinux.org/index.php/bluetooth#Installation
 ```sudo cp -r .zprofile ~/```····
 
 # install 2bwm
+install xcb-util-keysyms
+```yay xcb-util-keysyms```
 git clone this reportisy, go to 2bwm directory    
 ```make clean; make; sudo make install```        
 copy .xinitrc .xprofile .Xresources to user home directory.    
