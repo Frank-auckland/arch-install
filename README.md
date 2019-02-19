@@ -24,28 +24,26 @@ https://wiki.archlinux.org/index.php/bluetooth#Installation
 
 # install xorg-xrandr
 ```pacman -S xorg-xrandr```    
-```cp .zprofile ~/```····
+```cp .zprofile ~/```····  
 
-# install xorg-xinit
-```yay xorg-xinit```
-```cp .xinitrc ~/``` 
-
-# install xorg-server 
-```yay xorg-server```    
-
+# install xorg-xrdb
+```yay xorg-xrdb```
+```cp .Xresources ~/``` 
 
 # install 2bwm
 install xcb-util-keysyms
 ```yay xcb-util-keysyms```
 git clone this reportisy, go to 2bwm directory    
 ```make clean; make; sudo make install```        
-copy .xinitrc .xprofile .Xresources to user home directory.      
-```cp .xprofile ~/```    
-```cp .Xresources ~/```   
+copy .xinitrc .xprofile .Xresources to user home directory.     
 
-
-# install rofi
-yay rofi
+# install alacritty
+ 1. install and configure the stable toolchain    
+```rustup install stable```      
+```rustup default stable```     
+2. install alacritty
+```yay alacritty-git```         
+```cp -r .config/alacritty ~/.config/```   
 
 # install chromium
 ```yay chromium```
@@ -56,15 +54,21 @@ https://wiki.archlinux.org/index.php/Powerline
 ```yay nerd-fonts-complete```    
 ```cp .zshrc ~/``` 
 
-
 # install neovim
 neovim should install after powerline    
 https://wiki.archlinux.org/index.php/Neovim    
-```cp -r .config/nvim ~/.config/```    
+```cp -r .config/nvim ~/.config/```     
 
-# install alacritty
-```yay alacritty-git```         
-```cp -r .config/alacritty ~/.config/```    
+# install xorg-xinit
+```yay xorg-xinit```
+```cp .xinitrc ~/``` 
+```cp .xprofile ~/```
+
+# install xorg-server 
+```yay xorg-server```  
+
+# install rofi
+yay rofi
 
 # install pulseaudio pavucontrol imagemagick
 yay pulseaudio    
