@@ -22,20 +22,15 @@ https://wiki.archlinux.org/index.php/netctl#Wireless, interface.service can find
 # install bluez and bluez-utils
 https://wiki.archlinux.org/index.php/bluetooth#Installation
 
-# install xorg-xrandr
-```pacman -S xorg-xrandr```    
-```cp .zprofile ~/```····  
-
 # install xorg-xrdb
-```yay xorg-xrdb```
+```yay xorg-xrdb```    
 ```cp .Xresources ~/``` 
 
 # install 2bwm
 install xcb-util-keysyms
 ```yay xcb-util-keysyms```
 git clone this reportisy, go to 2bwm directory    
-```make clean; make; sudo make install```        
-copy .xinitrc .xprofile .Xresources to user home directory.     
+```make clean; make; sudo make install```            
 
 # install alacritty
  1. install and configure the stable toolchain    
@@ -46,26 +41,41 @@ copy .xinitrc .xprofile .Xresources to user home directory.
 ```cp -r .config/alacritty ~/.config/```   
 
 # install chromium
-```yay chromium```
+```yay chromium```   
+
+# install xorg-xrandr
+```pacman -S xorg-xrandr```         
+
+# install xorg-server 
+```yay xorg-server```
+
+# install xorg-xinit
+```yay xorg-xinit```
+```cp .xinitrc ~/```  
+startx test above install is work, then
+```cp .zprofile ~/```    
+pkill x to kill 2bwm
 
 # install zsh powerline and nerd-fonts-complete
 https://wiki.archlinux.org/index.php/zsh#Installation    
-https://wiki.archlinux.org/index.php/Powerline    
+https://wiki.archlinux.org/index.php/Powerline  
+To list all installed shells     
+```chsh -l```    
+And to set one as default for your user    
+```chsh -s full-path-to-shell```    
+install zsh-syntax-highlighting    
+```zsh-syntax-highlighting```    
 ```yay nerd-fonts-complete```    
 ```cp .zshrc ~/``` 
 
 # install neovim
 neovim should install after powerline    
 https://wiki.archlinux.org/index.php/Neovim    
-```cp -r .config/nvim ~/.config/```     
-
-# install xorg-xinit
-```yay xorg-xinit```
-```cp .xinitrc ~/``` 
-```cp .xprofile ~/```
-
-# install xorg-server 
-```yay xorg-server```  
+```cp -r .config/nvim ~/.config/```  
+Install the Vim-plug Plugin Manager    
+``` curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```   
+nvim    
+:PlugInstall    
 
 # install rofi
 yay rofi
@@ -93,6 +103,7 @@ yay polybar
 ```yay fcitx-configtool```    
 ```yay fcitx-sogoupinyin```     
 use fcitx-configtool to add chinese (chick off "only show current language" )
+```cp .xprofile ~/``` 
 
 
 
