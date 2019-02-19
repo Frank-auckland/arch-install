@@ -2,7 +2,8 @@
 https://wiki.archlinux.org/index.php/installation_guide#Installation and https://www.viseator.com/2017/05/17/arch_install/ (don't install vim, install neovim)      
 https://www.youtube.com/watch?v=NFi6HwtPBgA (recommended, specially systemd-boot part)     
 https://wiki.archlinux.org/index.php/Systemd-boot      
-create user and group https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user
+create user and group https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user      
+change mirror in /etc/pacman.d/mirrorlist to nearby mirror (move nearby mirror to top of the list).
 
 
 # upgrade pacman keys
