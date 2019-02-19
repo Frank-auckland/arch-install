@@ -26,13 +26,20 @@ https://wiki.archlinux.org/index.php/bluetooth#Installation
 ```pacman -S xorg-xrandr```    
 ```cp .zprofile ~/```····
 
+# install xorg-xinit
+```yay xorg-xinit```
+```cp .xinitrc ~/``` 
+
+# install xorg-server 
+```yay xorg-server```    
+
+
 # install 2bwm
 install xcb-util-keysyms
 ```yay xcb-util-keysyms```
 git clone this reportisy, go to 2bwm directory    
 ```make clean; make; sudo make install```        
-copy .xinitrc .xprofile .Xresources to user home directory.    
-```cp .xinitrc ~/```    
+copy .xinitrc .xprofile .Xresources to user home directory.      
 ```cp .xprofile ~/```    
 ```cp .Xresources ~/```   
 
@@ -53,11 +60,11 @@ https://wiki.archlinux.org/index.php/Powerline
 # install neovim
 neovim should install after powerline    
 https://wiki.archlinux.org/index.php/Neovim    
-```cp .config/nvim ~/.config/```    
+```cp -r .config/nvim ~/.config/```    
 
 # install alacritty
-yay alacritty-git    
-```cp .config/alacritty ~/.config/```    
+```yay alacritty-git```         
+```cp -r .config/alacritty ~/.config/```    
 
 # install pulseaudio pavucontrol imagemagick
 yay pulseaudio    
