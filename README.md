@@ -24,7 +24,7 @@ https://wiki.archlinux.org/index.php/bluetooth#Installation
 
 # install xorg-xrandr
 ```pacman -S xorg-xrandr```    
-```sudo cp -r .zprofile ~/```····
+```cp .zprofile ~/```····
 
 # install 2bwm
 install xcb-util-keysyms
@@ -32,9 +32,9 @@ install xcb-util-keysyms
 git clone this reportisy, go to 2bwm directory    
 ```make clean; make; sudo make install```        
 copy .xinitrc .xprofile .Xresources to user home directory.    
-```sudo cp -r .xinitrc ~/```    
-```sudo cp -r .xprofile ~/```    
-```sudo cp -r .Xresources ~/```   
+```cp .xinitrc ~/```    
+```cp .xprofile ~/```    
+```cp .Xresources ~/```   
 
 
 # install rofi
@@ -47,34 +47,34 @@ yay rofi
 https://wiki.archlinux.org/index.php/zsh#Installation    
 https://wiki.archlinux.org/index.php/Powerline    
 ```yay nerd-fonts-complete```    
-```sudo cp -r ..zshrc ~/``` 
+```cp .zshrc ~/``` 
 
 
 # install neovim
 neovim should install after powerline    
 https://wiki.archlinux.org/index.php/Neovim    
-```sudo cp -r .config/nvim ~/.config/```    
+```cp .config/nvim ~/.config/```    
 
 # install alacritty
 yay alacritty-git    
-```sudo cp -r .config/alacritty ~/.config/```    
+```cp .config/alacritty ~/.config/```    
 
 # install pulseaudio pavucontrol imagemagick
 yay pulseaudio    
 yay pavucontrol    
 yay imagemagick   
-```sudo cp -r .script/pavol /usr/local/bin/```    
-```sudo cp -r .script/screenshot /usr/local/bin/```    
+```cp .script/pavol /usr/local/bin/```    
+```cp .script/screenshot /usr/local/bin/```    
 ```sudo chmod 755 /usr/local/bin/pavol```    
 ```sudo chmod 755 /usr/local/bin/screenshot```    
-```sudo mkdir ~/Pictures```
+```mkdir ~/Pictures```
 
 # install nitrogen
 yay nitrogen
 
 # install polybar
 yay polybar     
-```sudo cp -r .config/polybar ~/.config/``` 
+```cp .config/polybar ~/.config/``` 
 
 # install sogou
 ```yay adobe-source-han-sans-cn-fonts```    
