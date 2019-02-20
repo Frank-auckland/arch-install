@@ -3,7 +3,8 @@ https://wiki.archlinux.org/index.php/installation_guide#Installation and https:/
 https://www.youtube.com/watch?v=NFi6HwtPBgA (recommended, specially systemd-boot part)     
 https://wiki.archlinux.org/index.php/Systemd-boot      
 create user and group https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user      
-change mirror in /etc/pacman.d/mirrorlist to nearby mirror (move nearby mirror to top of the list).
+change mirror in /etc/pacman.d/mirrorlist to nearby mirror (move nearby mirror to top of the list).    
+```locale-gen``` must run after uncomment en_US.UTF-8 UTF-8 and other needed locales in /etc/locale.gen    
 
 # create user and add user to group
 https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user    
@@ -88,7 +89,8 @@ yay rofi
 
 # install pulseaudio pavucontrol imagemagick
 yay pulseaudio    
-yay pavucontrol    
+yay pavucontrol   
+use pavucontrol setup the sound
 yay imagemagick   
 ```sudo cp .script/pavol /usr/local/bin/```    
 ```sudo cp .script/screenshot /usr/local/bin/```    
@@ -101,13 +103,14 @@ yay nitrogen
 
 # install polybar
 yay polybar     
-```cp .config/polybar ~/.config/``` 
+```cp -r .config/polybar ~/.config/```     
+use xrandr check screen info and change it in ~/.config/polybar/config and also change polybar config in ~/.xinitrc
 
 # install sogou
 ```yay adobe-source-han-sans-cn-fonts```    
 ```yay fcitx```    
 ```yay fcitx-configtool```    
-```yay fcitx-sogoupinyin```     
+```yay fcitx-sogoupinyin```     install select qtwebkit-bin 
 use fcitx-configtool to add chinese (chick off "only show current language" )
 
 
