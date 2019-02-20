@@ -31,8 +31,8 @@ https://wiki.archlinux.org/index.php/bluetooth#Installation
 ```cp .Xresources ~/``` 
 
 # install 2bwm
-install xcb-util-keysyms
-```yay xcb-util-keysyms```
+install xcb-util-keysyms    
+```yay xcb-util-keysyms```    
 git clone this reportisy, go to 2bwm directory    
 ```make clean; make; sudo make install```            
 
@@ -40,7 +40,7 @@ git clone this reportisy, go to 2bwm directory
  1. install and configure the stable toolchain    
 ```rustup install stable```      
 ```rustup default stable```     
-2. install alacritty
+2. install alacritty    
 ```yay alacritty-git```         
 ```cp -r .config/alacritty ~/.config/```   
 
@@ -57,10 +57,10 @@ git clone this reportisy, go to 2bwm directory
 ```yay xorg-server```
 
 # install xorg-xinit
-```yay xorg-xinit```
-```cp .xinitrc ~/```  
-startx test above install is work, then
-```cp .zprofile ~/```    
+```yay xorg-xinit```    
+```cp .xinitrc ~/```    
+startx test above install is work, then    
+```cp .zprofile ~/```        
 pkill x to kill 2bwm
 
 # install zsh powerline and nerd-fonts-complete
@@ -73,7 +73,9 @@ And to set one as default for your user
 install zsh-syntax-highlighting    
 ```yay zsh-syntax-highlighting```    
 install powerlevel9k and fonts     
-https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k           https://github.com/bhilburn/powerlevel9k    
+https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k  
+
+https://github.com/bhilburn/powerlevel9k    
 ```cp .zshrc ~/``` 
 
 # install neovim
