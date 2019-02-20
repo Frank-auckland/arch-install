@@ -111,20 +111,9 @@ compinit
 if [ -f '/home/frank/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/frank/google-cloud-sdk/completion.zsh.inc'; fi
 
 alias vim='nvim'
-
 alias ls='ls --color'
 alias ll='ls -al --color'
 alias history='history 1'
-
-alias kc='kubectl'
-
-
-alias nint='gcloud container clusters get-credentials kubernetes-cb6bcc40 --zone australia-southeast1-a --project xm-integration; kubectl proxy'
-alias int='gcloud container clusters get-credentials int-plat-ause1-k8-1 --zone australia-southeast1-c --project xm-development; kubectl proxy'
-alias dev='gcloud container clusters get-credentials dev-plat-ause1-k8-1 --zone australia-southeast1-c --project xm-development; kubectl proxy'
-alias qa='gcloud container clusters get-credentials qa-plat-ause1-k8-1 --zone australia-southeast1-c --project xm-development; kubectl proxy'
-
-source /opt/google-cloud-sdk/*.zsh.inc
 
 # Lines configured by zsh-newuser-install
 HISTSIZE=5000               #How many lines of history to keep in memory
@@ -147,3 +136,7 @@ powerline-daemon -q
 
 
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+
+#The following is for gcloud the kubectl
+#alias kc='kubectl'
+#source /opt/google-cloud-sdk/*.zsh.inc
