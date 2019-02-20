@@ -113,8 +113,9 @@ use xrandr check screen info and change it in ~/.config/polybar/config and also 
 ```yay adobe-source-han-sans-cn-fonts```    
 ```yay fcitx```    
 ```yay fcitx-configtool```    
-```yay fcitx-sogoupinyin```     install select qtwebkit-bin      
-use fcitx-configtool to add chinese (chick off "only show current language" )
+```yay fcitx-sogoupinyin```         
+install can select qtwebkit-bin to reduce install time, but must install the following package at first.
+fcitx-configtool,fcitx-gtk2,fcitx-gtk3,fcitx-libpinyin,fcitx-qt4,fcitx-qt5. use fcitx-configtool to add chinese (chick off "only show current language" )
 
 
 
