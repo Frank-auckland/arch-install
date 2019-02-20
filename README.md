@@ -84,8 +84,8 @@ yay rofi
 yay pulseaudio    
 yay pavucontrol    
 yay imagemagick   
-```cp .script/pavol /usr/local/bin/```    
-```cp .script/screenshot /usr/local/bin/```    
+```sudo cp .script/pavol /usr/local/bin/```    
+```sudo cp .script/screenshot /usr/local/bin/```    
 ```sudo chmod 755 /usr/local/bin/pavol```    
 ```sudo chmod 755 /usr/local/bin/screenshot```    
 ```mkdir ~/Pictures```
