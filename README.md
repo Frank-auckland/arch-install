@@ -72,7 +72,8 @@ And to set one as default for your user
 ```chsh -s full-path-to-shell```    
 install zsh-syntax-highlighting    
 ```yay zsh-syntax-highlighting```    
-```yay nerd-fonts-complete```    
+install powerlevel9k and fonts     
+https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k     https://github.com/bhilburn/powerlevel9k    
 ```cp .zshrc ~/``` 
 
 # install neovim
