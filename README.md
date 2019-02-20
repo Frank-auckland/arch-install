@@ -5,6 +5,9 @@ https://wiki.archlinux.org/index.php/Systemd-boot
 create user and group https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user      
 change mirror in /etc/pacman.d/mirrorlist to nearby mirror (move nearby mirror to top of the list).
 
+# create user and add user to group
+https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user    
+add "USER ALL=(ALL) NOPASSWD: ALL" to /etc/sudoers
 
 # upgrade pacman keys
 ```pacman-key --refresh-keys``` 
