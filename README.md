@@ -64,7 +64,7 @@ To list all installed shells
 And to set one as default for your user    
 ```chsh -s full-path-to-shell```    
 install zsh-syntax-highlighting    
-```zsh-syntax-highlighting```    
+```yay zsh-syntax-highlighting```    
 ```yay nerd-fonts-complete```    
 ```cp .zshrc ~/``` 
 
@@ -103,7 +103,6 @@ yay polybar
 ```yay fcitx-configtool```    
 ```yay fcitx-sogoupinyin```     
 use fcitx-configtool to add chinese (chick off "only show current language" )
-```cp .xprofile ~/``` 
 
 
 
