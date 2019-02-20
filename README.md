@@ -47,7 +47,10 @@ git clone this reportisy, go to 2bwm directory
 ```yay chromium```   
 
 # install xorg-xrandr
-```pacman -S xorg-xrandr```         
+```pacman -S xorg-xrandr```    
+
+# install arandr
+```yay arandr```
 
 # install xorg-server 
 ```yay xorg-server```
