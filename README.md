@@ -73,7 +73,7 @@ And to set one as default for your user
 install zsh-syntax-highlighting    
 ```yay zsh-syntax-highlighting```    
 install powerlevel9k and fonts     
-https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k     https://github.com/bhilburn/powerlevel9k    
+https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k           https://github.com/bhilburn/powerlevel9k    
 ```cp .zshrc ~/``` 
 
 # install neovim
@@ -89,10 +89,10 @@ nvim
 yay rofi
 
 # install pulseaudio pavucontrol imagemagick
-yay pulseaudio    
-yay pavucontrol   
-use pavucontrol setup the sound
-yay imagemagick   
+```yay pulseaudio```    
+```yay pavucontrol```     
+use pavucontrol setup the sound       
+```yay imagemagick```   
 ```sudo cp .script/pavol /usr/local/bin/```    
 ```sudo cp .script/screenshot /usr/local/bin/```    
 ```sudo chmod 755 /usr/local/bin/pavol```    
@@ -111,7 +111,7 @@ use xrandr check screen info and change it in ~/.config/polybar/config and also 
 ```yay adobe-source-han-sans-cn-fonts```    
 ```yay fcitx```    
 ```yay fcitx-configtool```    
-```yay fcitx-sogoupinyin```     install select qtwebkit-bin 
+```yay fcitx-sogoupinyin```     install select qtwebkit-bin      
 use fcitx-configtool to add chinese (chick off "only show current language" )
 
 
