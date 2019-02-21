@@ -9,36 +9,38 @@ use ```wifi-menu``` to set internet connection.
 ## Partition the disks
 BIOS can use ```fdisk``` to set partition. EFI use ```cgdisk``` to set GPT partitions. Boot partition select ef00. Root partition use default set (swap partition is option, partition tpye is 8200). Boot use ```mkfs.fat -F32``` to format. Root use ```mkfs.ext4``` to format (```mkswap``` to format swap partition). 
 ## Mount the file systems
-Mount the file system on the root partition to /mnt.
+Mount the file system on the root partition to /mnt.    
 ```mount /dev/sdX1 /mnt```    
-EFI Boot need to mount boot partition to /mnt/boot
+EFI Boot need to mount boot partition to /mnt/boot    
 ```mkdir /mnt/boot```    
 ```mount /dev/sdX2 /mnt/boot```
 ## Change mirrorlist
-move nearby mirror to top of the list
+move nearby mirror to top of the list    
 ```vim /etc/pacman.d/mirrorlist``` to move 
 ## Install the base packages
 ```pacstrap /mnt base base-devel```    
 update pacman key if necessary    
 ```pacman-key --refresh-keys```
 ## Config Fstab
-```genfstab -L /mnt >> /mnt/etc/fstab```    
+```genfstab -L /mnt >> /mnt/etc/fstab```        
 ```cat /mnt/etc/fstab``` to check the partition is mount to right directory.
 ## Chroot
 ```arch-chroot /mnt```
 ## Time zone
 ```ln -sf /usr/share/zoneinfo/Region/City /etc/localtime```    
 ```hwclock --systohc```
+## Install necessary package
+```pacman -S neovim dialog wpa_supplicant```
 ## Localization
 Uncomment en_US.UTF-8 UTF-8 and other needed locales in /etc/locale.gen    
-```vim /etc/locale.gen```    
-```locale-gen```
+```nvim /etc/locale.gen```    
+run ```locale-gen``` to config    
 Set the LANG variable in locale.conf, usually is "LANG=en_US.UTF-8"    
 ```/etc/locale.conf```
 ## Create the hostname file
-```vim /etc/hostname```
+```nvim /etc/hostname```
 ## Add matching entries to hosts
-```vim /etc/hosts```    
+```nvim /etc/hosts```    
 ```
 127.0.0.1	localhost
 ::1		localhost
@@ -49,20 +51,30 @@ Set the LANG variable in locale.conf, usually is "LANG=en_US.UTF-8"
 ## Intel-ucode
 If the CPU is not Intel, this step can skip.
 ```pacman -S intel-ucode```
-## install Bootloader
+## Install Bootloader
 Here only instruct systemd-boot.    
-### install
-```bootctl --path=/boot install```
+### Install
+```bootctl --path=/boot install```    
+### Config loader
+```nvim boot/loader/loader.conf``` input as follow
+```
+default  arch
+timeout  4
+```
+### Add loaders
+```nvim boot/loader/entries/arch.conf``` input as follow
+```
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options root=PARTUUID=my_partuuid_of_root_directory rw
+```
+my partuuid of root directory can use command "blkid" to get.
+### install netctl and wpa_actiond
+https://wiki.archlinux.org/index.php/netctl#Wireless, interface.service can find out form command ip addr (the card name).
 
 
-
-
-https://wiki.archlinux.org/index.php/installation_guide#Installation and https://www.viseator.com/2017/05/17/arch_install/ (don't install vim, install neovim)      
-https://www.youtube.com/watch?v=NFi6HwtPBgA (recommended, specially systemd-boot part)     
-https://wiki.archlinux.org/index.php/Systemd-boot      
-create user and group https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user      
-change mirror in /etc/pacman.d/mirrorlist to nearby mirror (move nearby mirror to top of the list).    
-```locale-gen``` must run after uncomment en_US.UTF-8 UTF-8 and other needed locales in /etc/locale.gen    
 
 # create user and add user to group
 https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user    
@@ -78,8 +90,6 @@ pacman -S dialog wpa_supplicant
 https://www.ostechnix.com/yay-found-yet-another-reliable-aur-helper/    
 after this use yay -S yay install yay again, let yay under yay control
 
-# install netctl and wpa_actiond
-https://wiki.archlinux.org/index.php/netctl#Wireless, interface.service can find out form command ip addr (the card name).
 
 # install bluez and bluez-utils
 https://wiki.archlinux.org/index.php/bluetooth#Installation
