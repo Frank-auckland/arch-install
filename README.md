@@ -1,4 +1,62 @@
 # install arch 
+## Check boot method
+Use command as follow, if you can see "No such file or directory", you boot is BIOS, otherwise, you boot is EFI. BIOS boot only create root partition, and use grub as bootloader. EFI need to create boot and root partitions.     
+```ls /sys/firmware/efi/efivars```    
+## Set internet connection
+use ```wifi-menu``` to set internet connection.
+## Update the system clock
+```timedatectl set-ntp true```
+## Partition the disks
+BIOS can use ```fdisk``` to set partition. EFI use ```cgdisk``` to set GPT partitions. Boot partition select ef00. Root partition use default set (swap partition is option, partition tpye is 8200). Boot use ```mkfs.fat -F32``` to format. Root use ```mkfs.ext4``` to format (```mkswap``` to format swap partition). 
+## Mount the file systems
+Mount the file system on the root partition to /mnt.
+```mount /dev/sdX1 /mnt```    
+EFI Boot need to mount boot partition to /mnt/boot
+```mkdir /mnt/boot```    
+```mount /dev/sdX2 /mnt/boot```
+## Change mirrorlist
+move nearby mirror to top of the list
+```vim /etc/pacman.d/mirrorlist``` to move 
+## Install the base packages
+```pacstrap /mnt base base-devel```    
+update pacman key if necessary    
+```pacman-key --refresh-keys```
+## Config Fstab
+```genfstab -L /mnt >> /mnt/etc/fstab```    
+```cat /mnt/etc/fstab``` to check the partition is mount to right directory.
+## Chroot
+```arch-chroot /mnt```
+## Time zone
+```ln -sf /usr/share/zoneinfo/Region/City /etc/localtime```    
+```hwclock --systohc```
+## Localization
+Uncomment en_US.UTF-8 UTF-8 and other needed locales in /etc/locale.gen    
+```vim /etc/locale.gen```    
+```locale-gen```
+Set the LANG variable in locale.conf, usually is "LANG=en_US.UTF-8"    
+```/etc/locale.conf```
+## Create the hostname file
+```vim /etc/hostname```
+## Add matching entries to hosts
+```vim /etc/hosts```    
+```
+127.0.0.1	localhost
+::1		localhost
+127.0.1.1	myhostname.localdomain	myhostname
+```    
+## Root password
+```passwd```
+## Intel-ucode
+If the CPU is not Intel, this step can skip.
+```pacman -S intel-ucode```
+## install Bootloader
+Here only instruct systemd-boot.    
+### install
+```bootctl --path=/boot install```
+
+
+
+
 https://wiki.archlinux.org/index.php/installation_guide#Installation and https://www.viseator.com/2017/05/17/arch_install/ (don't install vim, install neovim)      
 https://www.youtube.com/watch?v=NFi6HwtPBgA (recommended, specially systemd-boot part)     
 https://wiki.archlinux.org/index.php/Systemd-boot      
