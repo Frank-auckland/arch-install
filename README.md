@@ -30,7 +30,7 @@ update pacman key if necessary
 ```ln -sf /usr/share/zoneinfo/Region/City /etc/localtime```    
 ```hwclock --systohc```
 ## Install necessary package
-```pacman -S neovim dialog wpa_supplicant```
+```pacman -S git neovim dialog wpa_supplicant```
 ## Localization
 Uncomment en_US.UTF-8 UTF-8 and other needed locales in /etc/locale.gen    
 ```nvim /etc/locale.gen```    
@@ -71,28 +71,44 @@ initrd  /initramfs-linux.img
 options root=PARTUUID=my_partuuid_of_root_directory rw
 ```
 my partuuid of root directory can use command "blkid" to get.
-### install netctl and wpa_actiond
-https://wiki.archlinux.org/index.php/netctl#Wireless, interface.service can find out form command ip addr (the card name).
+## Set up netctl
+Install wpa_actiond     
+```pacman -S wpa_actiond ```    
+For wireless settings, use ```sudo wifi-menu -o``` as root to generate the profile file in /etc/netctl/.
+Install the wpa_actiond package and start/enable netctl-auto@interface.service systemd unit. netctl profiles will be started/stopped automatically as you move from the range of one network into the range of another network (roaming).    
+```systemctl enable netctl-auto@my_interface.service```    
+Use command ```ip addr``` to get my_interface, my_interface is the name of the network card.
 
-
-
-# create user and add user to group
-https://wiki.archlinux.org/index.php/users_and_groups#Example_adding_a_user    
+## create user and add user to group
+Add new user
+```useradd -m new_user```    
+Give passwd to new user    
+```passwd new_user```    
+Add users to a group with the gpasswd command    
+```gpasswd -a user group```    
+Give the user permission to run all commands    
 add "USER ALL=(ALL) NOPASSWD: ALL" to /etc/sudoers
 
-# upgrade pacman keys
-```pacman-key --refresh-keys``` 
+## install yay
+```pacman -S yay```
 
-# install dialog wpa_supplicant
-pacman -S dialog wpa_supplicant
-
-# install yay
-https://www.ostechnix.com/yay-found-yet-another-reliable-aur-helper/    
-after this use yay -S yay install yay again, let yay under yay control
-
-
-# install bluez and bluez-utils
-https://wiki.archlinux.org/index.php/bluetooth#Installation
+## install bluez and bluez-utils
+```pacman -S bluez bluez-utils```    
+Enable bluetooth.service for start with boot.    
+```systemctl enable bluetooth.service```   
+Start the ```bluetoothctl``` interactive command
+Enter ```power on``` to turn the power to the controller on. It is off by default and will turn off again each reboot, add the line ```AutoEnable=true``` in ```/etc/bluetooth/main.conf``` at the bottom in the [Policy] section.
+```nvim /etc/bluetooth/main.conf```    
+```
+[Policy]
+AutoEnable=true
+```
+Enter ```devices``` to get the MAC Address of the device with which to pair.
+Enter device discovery mode with ```scan on``` command if device is not yet on the list.
+Turn the agent on with ```agent on``` or choose a specific agent: if you press tab twice after ```agent``` you should see a list of available agents, e.g. DisplayOnly KeyboardDisplay NoInputNoOutput DisplayYesNo KeyboardOnly off on.
+Enter ```pair MAC_address``` to do the pairing (tab completion works).
+If using a device without a PIN, one may need to manually trust the device before it can reconnect successfully. Enter ```trust MAC_address``` to do so.
+Enter ```connect MAC_address``` to establish a connection.
 
 # install xorg-xrdb
 ```yay xorg-xrdb```    
@@ -132,23 +148,34 @@ startx test above install is work, then
 pkill x to kill 2bwm
 
 # install zsh powerline and nerd-fonts-complete
-https://wiki.archlinux.org/index.php/zsh#Installation    
-https://wiki.archlinux.org/index.php/Powerline  
+install zsh
+```
+yay zsh
+yay zsh-completions
+```    
 To list all installed shells     
 ```chsh -l```    
 And to set one as default for your user    
 ```chsh -s full-path-to-shell```    
 install zsh-syntax-highlighting    
-```yay zsh-syntax-highlighting```    
+```yay zsh-syntax-highlighting```   
+install Powerline
+```
+yay powerline
+yay powerline-fonts
+```     
 install powerlevel9k and fonts     
-https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k  
-
-https://github.com/bhilburn/powerlevel9k    
-```cp .zshrc ~/``` 
+```yay zsh-theme-powerlevel9k```    
+```
+git clone https://github.com/powerline/fonts.git
+./install.sh
+(need to test really need it or not)    
+````
+```cp .zshrc ~/```  
 
 # install neovim
-neovim should install after powerline    
-https://wiki.archlinux.org/index.php/Neovim    
+neovim should install after powerline        
+```yay	neovim```       
 ```cp -r .config/nvim ~/.config/```  
 Install the Vim-plug Plugin Manager    
 ``` curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```   
