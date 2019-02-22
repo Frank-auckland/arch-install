@@ -1,4 +1,4 @@
-# install arch 
+# Install arch 
 ## Check boot method
 Use command as follow, if you can see "No such file or directory", you boot is BIOS, otherwise, you boot is EFI. BIOS boot only create root partition, and use grub as bootloader. EFI need to create boot and root partitions.     
 ```ls /sys/firmware/efi/efivars```    
@@ -88,7 +88,7 @@ Install the wpa_actiond package and start/enable netctl-auto@interface.service s
 ```systemctl enable netctl-auto@my_interface.service```    
 Use command ```ip addr``` to get my_interface, my_interface is the name of the network card.
 
-## create user and add user to group
+## Create user and add user to group
 Add new user
 ```useradd -m new_user```    
 Give passwd to new user    
@@ -98,10 +98,10 @@ Add users to a group with the gpasswd command
 Give the user permission to run all commands    
 add "USER ALL=(ALL) NOPASSWD: ALL" to /etc/sudoers
 
-## install yay
+## Install yay
 ```pacman -S yay```
 
-## install bluez and bluez-utils
+## Install bluez and bluez-utils
 ```pacman -S bluez bluez-utils```    
 Enable bluetooth.service for start with boot.    
 ```systemctl enable bluetooth.service```   
@@ -119,19 +119,19 @@ Enter ```pair MAC_address``` to do the pairing (tab completion works).
 If using a device without a PIN, one may need to manually trust the device before it can reconnect successfully. Enter ```trust MAC_address``` to do so.    
 Enter ```connect MAC_address``` to establish a connection.    
 
-## install xorg-xrdb
+## Install xorg-xrdb
 ```
 yay xorg-xrdb
 cp .Xresources ~/
 ``` 
 
-## install 2bwm
+## Install 2bwm
 install xcb-util-keysyms    
 ```yay xcb-util-keysyms```    
 git clone this reportisy, go to 2bwm directory    
 ```make clean; make; sudo make install```            
 
-## install alacritty
+## Install alacritty
 1. install and configure the stable toolchain    
 ```
 rustup install stable
@@ -143,19 +143,19 @@ yay alacritty-git
 cp -r .config/alacritty ~/.config/
 ```   
 
-## install chromium
+## Install chromium
 ```yay chromium```   
 
-## install xorg-xrandr
+## Install xorg-xrandr
 ```yay xorg-xrandr```    
 
-## install arandr
+## Install arandr
 ```yay arandr```
 
-## install xorg-server 
+## Install xorg-server 
 ```yay xorg-server```
 
-## install xorg-xinit
+## Install xorg-xinit
 ```
 yay xorg-xinit
 cp .xinitrc ~/
@@ -164,7 +164,7 @@ startx test above install is work, then
 ```cp .zprofile ~/```        
 pkill x to kill startx
 
-## install zsh powerline and nerd-fonts-complete
+## Install zsh powerline and nerd-fonts-complete
 install zsh
 ```
 yay zsh
@@ -190,7 +190,7 @@ git clone https://github.com/powerline/fonts.git
 cp .zshrc ~/
 ```  
 
-## install neovim
+## Install neovim
 neovim should install after powerline        
 ```
 yay	neovim
@@ -200,11 +200,11 @@ Install the Vim-plug Plugin Manager
 ``` curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```   
 in nvim run ```:PlugInstall``` to install plugin    
 
-## install rofi
+## Install rofi
 Rofi is a convenient application searcher.
 ```yay rofi```   
 
-## install pulseaudio pavucontrol imagemagick
+## Install pulseaudio pavucontrol imagemagick
 use pavucontrol setup the sound, imagemagick is use for screenshot. 
 ```
 yay pulseaudio
@@ -216,11 +216,11 @@ sudo chmod 755 /usr/local/bin/pavol
 sudo chmod 755 /usr/local/bin/screenshot
 mkdir ~/Pictures
 ``` 
-## install nitrogen
+## Install nitrogen
 Nitrogen is used to set up background.
 ```yay nitrogen```
 
-## install polybar
+## Install polybar
 polybar is the bar show information in top of screen.
 ```
 yay polybar     
@@ -228,7 +228,7 @@ cp -r .config/polybar ~/.config/
 ```     
 use ```xrandr``` check screen info and change it in ~/.config/polybar/config and also change polybar config in ~/.xinitrc
 
-## install sogou
+## Install sogou
 sogou is a Chinese input.
 ```yay adobe-source-han-sans-cn-fonts```    
 ```yay fcitx```    
