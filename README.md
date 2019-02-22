@@ -28,7 +28,7 @@ update pacman key if necessary
 ## Chroot
 ```arch-chroot /mnt```
 ## Time zone
-```ln -sf /usr/share/zoneinfo/Region/City /etc/localtime```    
+```ln -sf /usr/share/zoneinfo/my_Region/my_City /etc/localtime```    
 ```hwclock --systohc```
 ## Install necessary package
 ```pacman -S git neovim dialog wpa_supplicant```
