@@ -12,9 +12,11 @@ BIOS can use ```fdisk``` to set partition. EFI use ```cgdisk``` to set GPT parti
 Mount the file system on the root partition to /mnt.    
 ```mount /dev/sdX1 /mnt```    
 EFI Boot also need to mount boot partition to /mnt/boot    
-```mount /dev/sdX1 /mnt```    
-```mkdir /mnt/boot```    
-```mount /dev/sdX2 /mnt/boot```
+```
+mount /dev/sdX1 /mnt
+mkdir /mnt/boot
+mount /dev/sdX2 /mnt/boot
+```
 ## Change mirrorlist
 move nearby mirror to top of the list    
 ```vim /etc/pacman.d/mirrorlist``` to move 
@@ -23,21 +25,26 @@ move nearby mirror to top of the list
 update pacman key if necessary    
 ```pacman-key --refresh-keys```
 ## Config Fstab
-```genfstab -L /mnt >> /mnt/etc/fstab```        
-```cat /mnt/etc/fstab``` to check the partition is mount to right directory.
+```
+genfstab -L /mnt >> /mnt/etc/fstab
+cat /mnt/etc/fstab
+``` 
+Check the partition is mount to right directory.
 ## Chroot
 ```arch-chroot /mnt```
 ## Time zone
-```ln -sf /usr/share/zoneinfo/my_Region/my_City /etc/localtime```    
-```hwclock --systohc```
+```
+ln -sf /usr/share/zoneinfo/my_Region/my_City /etc/localtime
+hwclock --systohc
+```
 ## Install necessary package
 ```pacman -S git neovim dialog wpa_supplicant```
 ## Localization
 Uncomment en_US.UTF-8 UTF-8 and other needed locales in /etc/locale.gen    
 ```nvim /etc/locale.gen```    
-run ```locale-gen``` to config    
+After uncomment, run ```locale-gen``` to config    
 Set the LANG variable in locale.conf, usually is "LANG=en_US.UTF-8"    
-```/etc/locale.conf```
+```nvim /etc/locale.conf```
 ## Create the hostname file
 ```nvim /etc/hostname```
 ## Add matching entries to hosts
@@ -65,12 +72,13 @@ timeout  4
 ### Add loaders
 ```nvim boot/loader/entries/arch.conf``` input as follow
 ```
-title   Arch Linux
+title   arch
 linux   /vmlinuz-linux
 initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root=PARTUUID=my_partuuid_of_root_directory rw
 ```
+title must as same as /boot/loader/loader.conf
 my partuuid of root directory can use command "blkid" to get.
 ## Set up netctl
 Install wpa_actiond     
@@ -111,44 +119,52 @@ Enter ```pair MAC_address``` to do the pairing (tab completion works).
 If using a device without a PIN, one may need to manually trust the device before it can reconnect successfully. Enter ```trust MAC_address``` to do so.    
 Enter ```connect MAC_address``` to establish a connection.    
 
-# install xorg-xrdb
-```yay xorg-xrdb```    
-```cp .Xresources ~/``` 
+## install xorg-xrdb
+```
+yay xorg-xrdb
+cp .Xresources ~/
+``` 
 
-# install 2bwm
+## install 2bwm
 install xcb-util-keysyms    
 ```yay xcb-util-keysyms```    
 git clone this reportisy, go to 2bwm directory    
 ```make clean; make; sudo make install```            
 
-# install alacritty
- 1. install and configure the stable toolchain    
-```rustup install stable```      
-```rustup default stable```     
+## install alacritty
+1. install and configure the stable toolchain    
+```
+rustup install stable
+rustup default stable
+```     
 2. install alacritty    
-```yay alacritty-git```         
-```cp -r .config/alacritty ~/.config/```   
+```
+yay alacritty-git
+cp -r .config/alacritty ~/.config/
+```   
 
-# install chromium
+## install chromium
 ```yay chromium```   
 
-# install xorg-xrandr
-```pacman -S xorg-xrandr```    
+## install xorg-xrandr
+```yay xorg-xrandr```    
 
-# install arandr
+## install arandr
 ```yay arandr```
 
-# install xorg-server 
+## install xorg-server 
 ```yay xorg-server```
 
-# install xorg-xinit
-```yay xorg-xinit```    
-```cp .xinitrc ~/```    
+## install xorg-xinit
+```
+yay xorg-xinit
+cp .xinitrc ~/
+```    
 startx test above install is work, then    
 ```cp .zprofile ~/```        
-pkill x to kill 2bwm
+pkill x to kill startx
 
-# install zsh powerline and nerd-fonts-complete
+## install zsh powerline and nerd-fonts-complete
 install zsh
 ```
 yay zsh
@@ -166,46 +182,54 @@ yay powerline
 yay powerline-fonts
 ```     
 install powerlevel9k and fonts     
-```yay zsh-theme-powerlevel9k```    
 ```
+yay zsh-theme-powerlevel9k
 git clone https://github.com/powerline/fonts.git
 ./install.sh
 (need to test really need it or not)    
-````
-```cp .zshrc ~/```  
+cp .zshrc ~/
+```  
 
-# install neovim
+## install neovim
 neovim should install after powerline        
-```yay	neovim```       
-```cp -r .config/nvim ~/.config/```  
+```
+yay	neovim
+cp -r .config/nvim ~/.config/
+```  
 Install the Vim-plug Plugin Manager    
 ``` curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```   
-nvim    
-:PlugInstall    
+in nvim run ```:PlugInstall``` to install plugin    
 
-# install rofi
-yay rofi
+## install rofi
+Rofi is a convenient application searcher.
+```yay rofi```   
 
-# install pulseaudio pavucontrol imagemagick
-```yay pulseaudio```    
-```yay pavucontrol```     
-use pavucontrol setup the sound       
-```yay imagemagick```   
-```sudo cp .script/pavol /usr/local/bin/```    
-```sudo cp .script/screenshot /usr/local/bin/```    
-```sudo chmod 755 /usr/local/bin/pavol```    
-```sudo chmod 755 /usr/local/bin/screenshot```    
-```mkdir ~/Pictures```
+## install pulseaudio pavucontrol imagemagick
+use pavucontrol setup the sound, imagemagick is use for screenshot. 
+```
+yay pulseaudio
+yay pavucontrol
+yay imagemagick
+sudo cp .script/pavol /usr/local/bin/
+sudo cp .script/screenshot /usr/local/bin/
+sudo chmod 755 /usr/local/bin/pavol
+sudo chmod 755 /usr/local/bin/screenshot
+mkdir ~/Pictures
+``` 
+## install nitrogen
+Nitrogen is used to set up background.
+```yay nitrogen```
 
-# install nitrogen
-yay nitrogen
-
-# install polybar
+## install polybar
+polybar is the bar show information in top of screen.
+```
 yay polybar     
-```cp -r .config/polybar ~/.config/```     
-use xrandr check screen info and change it in ~/.config/polybar/config and also change polybar config in ~/.xinitrc
+cp -r .config/polybar ~/.config/
+```     
+use ```xrandr``` check screen info and change it in ~/.config/polybar/config and also change polybar config in ~/.xinitrc
 
-# install sogou
+## install sogou
+sogou is a Chinese input.
 ```yay adobe-source-han-sans-cn-fonts```    
 ```yay fcitx```    
 ```yay fcitx-configtool```    
@@ -218,6 +242,3 @@ install can select qtwebkit-bin to reduce install time, but must install the fol
 ```fcitx-qt4```    
 ```fcitx-qt5```    
 use fcitx-configtool to add chinese (chick off "only show current language" )
-
-
-
