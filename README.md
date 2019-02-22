@@ -11,7 +11,8 @@ BIOS can use ```fdisk``` to set partition. EFI use ```cgdisk``` to set GPT parti
 ## Mount the file systems
 Mount the file system on the root partition to /mnt.    
 ```mount /dev/sdX1 /mnt```    
-EFI Boot need to mount boot partition to /mnt/boot    
+EFI Boot also need to mount boot partition to /mnt/boot    
+```mount /dev/sdX1 /mnt```    
 ```mkdir /mnt/boot```    
 ```mount /dev/sdX2 /mnt/boot```
 ## Change mirrorlist
