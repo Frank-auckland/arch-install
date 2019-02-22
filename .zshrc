@@ -85,31 +85,6 @@ plugins=(git kubectl)
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export DEFAULT_USER="frank"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#export PATH="$PATH:$HOME/.google-cloud-sdk/bin/" # Add google SDK to PATH
-
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$HOME/go/bin
-
-#Add Go IDE to PATH
-export PATH=$PATH:$HOME/frank/GoLand-2017.3/bin
-
-#Add terraform to PATH
-export PATH=$PATH:$HOME/terraform
-
-#POWERLINE_HIDE_HOST_NAME="true" # Not show the host name
-#source $ZSH/oh-my-zsh.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/frank/google-cloud-sdk/path.zsh.inc' ]; then source '/home/frank/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-autoload -U compinit compdef
-compinit
-if [ -f '/home/frank/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/frank/google-cloud-sdk/completion.zsh.inc'; fi
-
 alias vim='nvim'
 alias ls='ls --color'
 alias ll='ls -al --color'
@@ -125,7 +100,7 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/frank/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -136,7 +111,29 @@ powerline-daemon -q
 
 
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-
+export DEFAULT_USER="frank"
 #The following is for gcloud the kubectl
 #alias kc='kubectl'
 #source /opt/google-cloud-sdk/*.zsh.inc
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#export PATH="$PATH:$HOME/.google-cloud-sdk/bin/" # Add google SDK to PATH
+#export PATH=$PATH:/usr/local/go/bin
+#export PATH=$PATH:$HOME/go/bin
+
+#Add Go IDE to PATH
+#export PATH=$PATH:$HOME/GoLand-2017.3/bin
+
+#Add terraform to PATH
+#export PATH=$PATH:$HOME/terraform
+
+#POWERLINE_HIDE_HOST_NAME="true" # Not show the host name
+#source $ZSH/oh-my-zsh.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+#if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then source '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+#autoload -U compinit compdef
+#compinit
+#if [ -f '/$HOME/google-cloud-sdk/completion.zsh.inc' ]; then source '/$HOME/google-cloud-sdk/.zsh.inc'; fi
+
