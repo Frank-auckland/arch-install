@@ -57,7 +57,7 @@ Set the LANG variable in locale.conf, usually is "LANG=en_US.UTF-8"
 ## Root password
 ```passwd```
 ## Intel-ucode
-If the CPU is not Intel, this step can skip.
+If the CPU is not Intel, this step can skip.    
 ```pacman -S intel-ucode```
 ## Install Bootloader
 Here only instruct systemd-boot.    
