@@ -3,7 +3,7 @@
 Use command as follow, if you can see "No such file or directory", you boot is BIOS, otherwise, you boot is EFI. BIOS boot only create root partition, and use grub as bootloader. EFI need to create boot and root partitions.     
 ```ls /sys/firmware/efi/efivars```    
 ## Set internet connection
-use ```wifi-menu``` to set internet connection.
+Use ```wifi-menu``` to set internet connection.
 ## Update the system clock
 ```timedatectl set-ntp true```
 ## Partition the disks
@@ -22,7 +22,7 @@ move nearby mirror to top of the list
 ```vim /etc/pacman.d/mirrorlist``` to move 
 ## Install the base packages
 ```pacstrap /mnt base base-devel```    
-update pacman key if necessary    
+Update pacman key if necessary    
 ```pacman-key --refresh-keys```
 ## Config Fstab
 ```
@@ -78,8 +78,7 @@ initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root=PARTUUID=my_partuuid_of_root_directory rw
 ```
-title must as same as /boot/loader/loader.conf
-my partuuid of root directory can use command "blkid" to get.
+Title must as same as /boot/loader/loader.conf. My partuuid of root directory can use command "blkid" to get.
 ## Set up netctl
 Install wpa_actiond     
 ```pacman -S wpa_actiond ```    
@@ -95,8 +94,7 @@ Give passwd to new user
 ```passwd new_user```    
 Add users to a group with the gpasswd command    
 ```gpasswd -a user group```    
-Give the user permission to run all commands    
-add "USER ALL=(ALL) NOPASSWD: ALL" to /etc/sudoers
+Give the user permission to run all commands need to add "USER ALL=(ALL) NOPASSWD: ALL" to /etc/sudoers.
 
 ## Install yay
 ```pacman -S yay```
@@ -126,18 +124,18 @@ cp .Xresources ~/
 ``` 
 
 ## Install 2bwm
-install xcb-util-keysyms    
+Install xcb-util-keysyms    
 ```yay xcb-util-keysyms```    
-git clone this reportisy, go to 2bwm directory    
+Go to 2bwm directory    
 ```make clean; make; sudo make install```            
 
 ## Install alacritty
-1. install and configure the stable toolchain    
+1. Install and configure the stable toolchain    
 ```
 rustup install stable
 rustup default stable
 ```     
-2. install alacritty    
+2. Install alacritty    
 ```
 yay alacritty-git
 cp -r .config/alacritty ~/.config/
@@ -160,12 +158,11 @@ cp -r .config/alacritty ~/.config/
 yay xorg-xinit
 cp .xinitrc ~/
 ```    
-startx test above install is work, then    
-```cp .zprofile ~/```        
-pkill x to kill startx
+```startx``` test above install is work, then ```cp .zprofile ~/```        
+```pkill x```can kill startx
 
 ## Install zsh powerline and nerd-fonts-complete
-install zsh
+Install zsh
 ```
 yay zsh
 yay zsh-completions
@@ -174,14 +171,14 @@ To list all installed shells
 ```chsh -l```    
 And to set one as default for your user    
 ```chsh -s full-path-to-shell```    
-install zsh-syntax-highlighting    
+Install zsh-syntax-highlighting    
 ```yay zsh-syntax-highlighting```   
-install Powerline
+Install Powerline
 ```
 yay powerline
 yay powerline-fonts
 ```     
-install powerlevel9k and fonts     
+Install powerlevel9k and fonts     
 ```
 yay zsh-theme-powerlevel9k
 git clone https://github.com/powerline/fonts.git
@@ -191,21 +188,21 @@ cp .zshrc ~/
 ```  
 
 ## Install neovim
-neovim should install after powerline        
+Neovim should install after powerline        
 ```
 yay	neovim
 cp -r .config/nvim ~/.config/
 ```  
 Install the Vim-plug Plugin Manager    
 ``` curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```   
-in nvim run ```:PlugInstall``` to install plugin    
+In nvim run ```:PlugInstall``` to install plugin    
 
 ## Install rofi
 Rofi is a convenient application searcher.
 ```yay rofi```   
 
 ## Install pulseaudio pavucontrol imagemagick
-use pavucontrol setup the sound, imagemagick is use for screenshot. 
+Use pavucontrol setup the sound, imagemagick is use for screenshot. 
 ```
 yay pulseaudio
 yay pavucontrol
@@ -221,7 +218,7 @@ Nitrogen is used to set up background.
 ```yay nitrogen```
 
 ## Install polybar
-polybar is the bar show information in top of screen.
+Polybar is the bar show information in top of screen.
 ```
 yay polybar     
 cp -r .config/polybar ~/.config/
@@ -229,16 +226,16 @@ cp -r .config/polybar ~/.config/
 use ```xrandr``` check screen info and change it in ~/.config/polybar/config and also change polybar config in ~/.xinitrc
 
 ## Install sogou
-sogou is a Chinese input.
+Sogou is a Chinese input.
 ```yay adobe-source-han-sans-cn-fonts```    
 ```yay fcitx```    
 ```yay fcitx-configtool```    
 ```yay fcitx-sogoupinyin```         
-install can select qtwebkit-bin to reduce install time, but must install the following package at first.    
+Install can select qtwebkit-bin to reduce install time, but must install the following package at first.    
 ```fcitx-configtool```    
 ```fcitx-gtk2```    
 ```fcitx-gtk3```    
 ```fcitx-libpinyin```    
 ```fcitx-qt4```    
 ```fcitx-qt5```    
-use fcitx-configtool to add chinese (chick off "only show current language" )
+Use fcitx-configtool to add chinese (chick off "only show current language" )
