@@ -196,6 +196,13 @@ cp -r .config/nvim ~/.config/
 Install the Vim-plug Plugin Manager    
 ``` curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim```   
 In nvim run ```:PlugInstall``` to install plugin    
+The "shfmt" plugin need go language to work    
+```
+sudo pacman -Syy go go-tools
+cd $(mktemp -d); go mod init tmp; go get mvdan.cc/sh/v3/cmd/shfmt
+```    
+change go language bin directory in zshrc
+
 
 ## Install rofi
 Rofi is a convenient application searcher.
