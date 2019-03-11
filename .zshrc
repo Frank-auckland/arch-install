@@ -1,5 +1,9 @@
+# set go language directory
+GOBIN=$HOME/go/bin
+GOPATH=$HOME/go
 # If you come from bash you might have to change your $PATH.
- export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+ export PATH=$HOME/bin:/usr/local/bin:$GOBIN:$PATH
 
 # Path to your oh-my-zsh installation.
 # export ZSH=/usr/share/zsh
@@ -85,6 +89,23 @@ plugins=(git kubectl)
 #source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export DEFAULT_USER="frank"
+export LESS=R
+
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#
+#export PATH=$PATH:/usr/local/go/bin
+#export PATH=$PATH:$HOME/go/bin
+#
+##Add Go IDE to PATH
+#export PATH=$PATH:$HOME/frank/GoLand-2017.3/bin
+
+#Add terraform to PATH
+#export PATH=$PATH:$HOME/terraform
+
+#POWERLINE_HIDE_HOST_NAME="true" # Not show the host name
+#source $ZSH/oh-my-zsh.sh
+
 alias vim='nvim'
 alias ls='ls --color'
 alias ll='ls -al --color'
@@ -106,34 +127,20 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-powerline-daemon -q
-. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#powerline-daemon -q
+#. /usr/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 
 source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
-export DEFAULT_USER="frank"
-#The following is for gcloud the kubectl
+
+source /opt/google-cloud-sdk/*.zsh.inc 
+
+autoload -U +X bashcompinit && bashcompinit
+#complete -o nospace -C /usr/bin/terraform terraform
 #alias kc='kubectl'
-#source /opt/google-cloud-sdk/*.zsh.inc
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#export PATH="$PATH:$HOME/.google-cloud-sdk/bin/" # Add google SDK to PATH
-#export PATH=$PATH:/usr/local/go/bin
-#export PATH=$PATH:$HOME/go/bin
-
-#Add Go IDE to PATH
-#export PATH=$PATH:$HOME/GoLand-2017.3/bin
-
-#Add terraform to PATH
-#export PATH=$PATH:$HOME/terraform
-
-#POWERLINE_HIDE_HOST_NAME="true" # Not show the host name
-#source $ZSH/oh-my-zsh.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-#if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then source '$HOME/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-#autoload -U compinit compdef
-#compinit
-#if [ -f '/$HOME/google-cloud-sdk/completion.zsh.inc' ]; then source '/$HOME/google-cloud-sdk/.zsh.inc'; fi
-
+#
+#
+#alias nint='gcloud container clusters get-credentials kubernetes-cb6bcc40 --zone australia-southeast1-a --project xm-integration; kubectl proxy'
+#alias int='gcloud container clusters get-credentials int-plat-ause1-k8-1 --zone australia-southeast1-c --project xm-development; kubectl proxy'
+#alias dev='gcloud container clusters get-credentials dev-plat-ause1-k8-1 --zone australia-southeast1-c --project xm-development; kubectl proxy'
+#alias qa='gcloud container clusters get-credentials qa-plat-ause1-k8-1 --zone australia-southeast1-c --project xm-development; kubectl proxy'

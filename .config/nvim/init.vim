@@ -24,6 +24,7 @@ Plug 'vim-airline/vim-airline-themes'                           " 状态栏主�
 Plug 'vim-ctrlspace/vim-ctrlspace'                              " buffer,tab列表
 Plug 'Yggdroot/indentLine'                                      " 缩进线
 Plug 'zchee/deoplete-jedi'                                      " python-jedi
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }                        " shell format"
 
 " Initialize plugin system
 call plug#end()
@@ -80,6 +81,8 @@ au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
 let g:airline_solarized_bg='dark'
+
+let g:shfmt_extra_args = '-i 2'
 
 autocmd vimenter * NERDTree
 
