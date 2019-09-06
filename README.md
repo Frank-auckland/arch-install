@@ -7,7 +7,7 @@ Use ```wifi-menu``` to set internet connection.
 ## Update the system clock
 ```timedatectl set-ntp true```
 ## Partition the disks
-BIOS can use ```fdisk``` to set partition. EFI use ```cgdisk``` to set GPT partitions. Boot partition select ef00. Root partition use default set (swap partition is option, partition tpye is 8200). Boot use ```mkfs.fat -F32``` to format. Root use ```mkfs.ext4``` to format (```mkswap``` to format swap partition). 
+BIOS can use ```fdisk``` to set partition. EFI use ```cgdisk /dev/<disk name>``` to set GPT partitions. Boot partition select ef00. Root partition use default set (swap partition is option, partition tpye is 8200). Boot use ```mkfs.fat -F32``` to format. Root use ```mkfs.ext4``` to format (```mkswap``` to format swap partition). 
 ## Mount the file systems
 Mount the file system on the root partition to /mnt.    
 ```mount /dev/sdX1 /mnt```    
