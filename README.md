@@ -79,12 +79,12 @@ initrd  /initramfs-linux.img
 options root=PARTUUID=my_partuuid_of_root_directory rw
 ```
 Title must as same as /boot/loader/loader.conf. My partuuid of root directory can use command "blkid" to get.
-## Set up netctl
-Install wpa_actiond     
-```pacman -S wpa_actiond ```    
+## Set up netctl   
 For wireless settings, use ```sudo wifi-menu -o``` as root to generate the profile file in /etc/netctl/.
-Install the wpa_actiond package and start/enable netctl-auto@interface.service systemd unit. netctl profiles will be started/stopped automatically as you move from the range of one network into the range of another network (roaming).    
-```systemctl enable netctl-auto@my_interface.service```    
+Once you have created your profile, attempt to establish a connection, where profile is only the profile name, not the full path:         
+```netctl start profile```    
+A profile can be enabled to start at boot by using:    
+```netctl enable profile```
 Use command ```ip addr``` to get my_interface, my_interface is the name of the network card.
 
 ## Create user and add user to group
@@ -96,13 +96,14 @@ Add users to a group with the gpasswd command
 ```gpasswd -a user group```    
 Give the user permission to run all commands need to add "USER ALL=(ALL) NOPASSWD: ALL" to /etc/sudoers.
 
-## Install yay
+## Install yay ?
 ```pacman -S yay```
 
 ## Install bluez and bluez-utils
 ```pacman -S bluez bluez-utils```    
-Enable bluetooth.service for start with boot.    
-```systemctl enable bluetooth.service```   
+Start enable bluetooth.service for start with boot. 
+```systemctl start bluetooth.service```     
+```systemctl enable bluetooth.service```     
 Start the ```bluetoothctl``` interactive command
 Enter ```power on``` to turn the power to the controller on. It is off by default and will turn off again each reboot, add the line ```AutoEnable=true``` in ```/etc/bluetooth/main.conf``` at the bottom in the [Policy] section.
 ```nvim /etc/bluetooth/main.conf```    
@@ -126,18 +127,15 @@ cp .Xresources ~/
 ## Install 2bwm
 Install xcb-util-keysyms    
 ```yay xcb-util-keysyms```    
+```pacman -S xcb-util-wm```
+```pacman -S xcb-util-xrm```
 Go to 2bwm directory    
 ```make clean; make; sudo make install```            
 
 ## Install alacritty
-1. Install and configure the stable toolchain    
+Install alacritty    
 ```
-rustup install stable
-rustup default stable
-```     
-2. Install alacritty    
-```
-yay alacritty-git
+yay alacritty
 cp -r .config/alacritty ~/.config/
 ```   
 
