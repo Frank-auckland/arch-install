@@ -162,8 +162,8 @@ cp .xinitrc ~/
 ## Install zsh powerline and nerd-fonts-complete
 Install zsh
 ```
-yay zsh
-yay zsh-completions
+sudo pacman -S zsh
+sudo pacman -S zsh-completions
 ```    
 To list all installed shells     
 ```chsh -l```    
@@ -188,7 +188,7 @@ cp .zshrc ~/
 ## Install neovim
 Neovim should install after powerline        
 ```
-yay	neovim
+sudo pacman -S neovim
 cp -r .config/nvim ~/.config/
 ```  
 Install the Vim-plug Plugin Manager    
@@ -204,14 +204,14 @@ change go language bin directory in zshrc
 
 ## Install rofi
 Rofi is a convenient application searcher.
-```yay rofi```   
+```sudo pacman -S rofi```   
 
 ## Install pulseaudio pavucontrol imagemagick
 Use pavucontrol setup the sound, imagemagick is use for screenshot. 
 ```
-yay pulseaudio
-yay pavucontrol
-yay imagemagick
+sudo pacman -S pulseaudio
+sudo pacman -S pavucontrol
+sudo pacman -S imagemagick
 sudo cp .script/pavol /usr/local/bin/
 sudo cp .script/screenshot /usr/local/bin/
 sudo chmod 755 /usr/local/bin/pavol
@@ -220,7 +220,7 @@ mkdir ~/Pictures
 ``` 
 ## Install nitrogen
 Nitrogen is used to set up background.
-```yay nitrogen```
+```sudo pacman -S nitrogen```
 
 ## Install polybar
 Polybar is the bar show information in top of screen.
@@ -237,10 +237,10 @@ Sogou is a Chinese input.
 ```yay fcitx-configtool```    
 ```yay fcitx-sogoupinyin```         
 Install can select qtwebkit-bin to reduce install time, but must install the following package at first.    
-```fcitx-configtool```    
-```fcitx-gtk2```    
-```fcitx-gtk3```    
-```fcitx-libpinyin```    
-```fcitx-qt4```    
-```fcitx-qt5```    
+```sudo pacman -S fcitx-configtool```    
+```sudo pacman -S fcitx-gtk2```    
+```sudo pacman -S fcitx-gtk3```    
+```sudo pacman -S fcitx-libpinyin```    
+```yay fcitx-qt4```    
+```yay fcitx-qt5```    
 Use fcitx-configtool to add chinese (chick off "only show current language" )
