@@ -78,7 +78,12 @@ initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options root=PARTUUID=my_partuuid_of_root_directory rw
 ```
-Title must as same as /boot/loader/loader.conf. My partuuid of root directory can use command "blkid" to get.
+Title must as same as /boot/loader/loader.conf. My partuuid of root directory can use command "blkid" to get. Bootload also can boot windows for dual os, don't need to install grub. For boot windows, change the default to auto-windows. If this setting doesn't work, can manually and entry as follows:      
+```
+title   Windows
+efi     /EFI/Microsoft/Boot/bootmgfw.efi
+```
+
 ## Set up netctl   
 For wireless settings, use ```sudo wifi-menu -o``` as root to generate the profile file in /etc/netctl/.
 Once you have created your profile, attempt to establish a connection, where profile is only the profile name, not the full path:         
